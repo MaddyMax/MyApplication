@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
             HttpURLConnection httpconn = null;
             InputStream stream;
             BufferedReader reader = null;
-            //List<MovieGetSet> movieList = new ArrayList<>();
             List<ArtilceSetGet> artilceSetGetList = new ArrayList<>();
 
             try {
@@ -74,23 +73,6 @@ public class MainActivity extends AppCompatActivity {
                     artilceSetGetList.add(article);
 
                 }
-
-
-
-                /*JSONObject jsonobj = new JSONObject(String.valueOf(buffer));
-                JSONArray jsonMovieArray = jsonobj.getJSONArray("movies");
-                for(int i =0 ; i<jsonMovieArray.length(); i++){
-                    JSONObject dataObj = jsonMovieArray.getJSONObject(i);
-                    MovieGetSet movie =new MovieGetSet();
-                    movie.setMovie(dataObj.getString("movie"));
-                    movie.setYear("year" + dataObj.getString("year"));
-                    //Log.e("data ---------", dataObj.getString("movie"));
-                    //Log.e("data ---------", "year" + dataObj.getString("year"));
-                    movieList.add(movie);
-
-                }
-
-                return movieList;*/
                 return artilceSetGetList;
 
             } catch (MalformedURLException e) {
@@ -124,15 +106,6 @@ public class MainActivity extends AppCompatActivity {
             ArticleAdapter adpt = new ArticleAdapter(getBaseContext(),R.layout.articlerow,artilceSetGets);
             lv.setAdapter(adpt);
         }
-
-    /*@Override
-        protected void onPostExecute(List<MovieGetSet> s) {
-            super.onPostExecute(s);
-
-           // MovieAdapter adapt = new MovieAdapter(getBaseContext(), R.layout.row, s);
-            //lv.setAdapter(adapt);
-
-        }*/
     }
 
 
