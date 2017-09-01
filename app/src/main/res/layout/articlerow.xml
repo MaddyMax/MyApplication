@@ -3,24 +3,102 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:scaleType="fitXY"
+        />
+    <!-- Design for Author  Title Description Date -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="author"
-        android:id="@+id/tv_author"
-        style="@android:style/TextAppearance.Large"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="title"
-        android:id="@+id/tv_title"
-        style="@android:style/TextAppearance.Medium"/>
+        android:orientation="vertical"
+        android:padding="10dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="description"
-        android:id="@+id/tv_description"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="title"
+            android:id="@+id/tv_title"
+            style="@android:style/TextAppearance.Medium"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="description"
+            android:id="@+id/tv_description"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3"
+            android:layout_marginTop="10dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/author_label"
+
+                    android:textSize="9dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="author"
+                    android:id="@+id/tv_author"
+                    style="@android:style/TextAppearance.Small"
+
+                    android:textSize="9dp"
+                    />
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="published"
+                android:id="@+id/tv_published"
+                style="@android:style/TextAppearance.Small"
+                android:layout_weight="1"
+                android:textSize="9dp"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Link"
+                android:id="@+id/tv_link"
+                style="@android:style/TextAppearance.Small"
+                android:layout_weight="1"
+                android:textColor="@color/colorPrimary"
+                android:textSize="9dp"
+
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+    <!-- END OF Design for Author  Title Description Date -->
+
+
+    <!--<RelativeLayout-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical"-->
+        <!--android:gravity="center"-->
+        <!--&gt;-->
+
+
+        <!--<Button-->
+            <!--android:id="@+id/btn_link"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:text="link"-->
+           <!--/>-->
+    <!--</RelativeLayout>-->
 
 </LinearLayout>

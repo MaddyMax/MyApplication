@@ -8,6 +8,10 @@ import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,7 +32,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        // Create default options which will be used for every
+//  displayImage(...) call if no options will be passed to this method
+        DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
+           .cacheInMemory(true)
+                .cacheOnDisk(true)
+           .build();
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())
+           .defaultDisplayImageOptions(defaultOptions)
+           .build();
+        ImageLoader.getInstance().init(config); // Do it on Application start
+
+
         new AsyncTask1().execute();
+
+
+
         lv = (ListView) findViewById(R.id.lv_movie);
 
     }
@@ -69,7 +90,10 @@ public class MainActivity extends AppCompatActivity {
                     article.setAuthor(articleObj.getString("author"));
                     article.setDescription(articleObj.getString("description"));
                     article.setTitle(articleObj.getString("title"));
-                    Log.e("author ------", articleObj.getString("author") );
+                    article.setImageUrl(articleObj.getString("urlToImage"));
+                    article.setLink(articleObj.getString("url"));
+                    article.setPublished(articleObj.getString("publishedAt"));
+                    //Log.e("author ------", articleObj.getString("author") );
                     artilceSetGetList.add(article);
 
                 }
